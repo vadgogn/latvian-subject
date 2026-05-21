@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Latviešu Literatūra</title>
+
+<style>
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #222;
+  text-align: center;
+}
+
+/* PAGES */
+.page {
+  display: none;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 40px;
+}
+
+.active {
+  display: flex;
+}
+
+/* MAIN MENU */
+#menu {
+  background: linear-gradient(135deg, #2c3e50, #4ca1af);
+  color: white;
+}
+
+/* SKRODERDIENAS */
+#sk-home,
+#sk-sizets,
+#sk-autors,
+#sk-varoni,
+#sk-citati,
+#sk-viedokli {
+  background: linear-gradient(135deg, #ffb347, #ff8c42);
+  color: white;
+}
+
+/* NĀVES ĒNĀ */
+#na-home,
+#na-sizets,
+#na-autors,
+#na-varoni,
+#na-citati,
+#na-viedokli {
+  background: linear-gradient(135deg, #4f6d7a, #1b2a41);
+  color: white;
+}
+
+/* TEXT */
+h1, h2, p {
+  text-align: center;
+}
+
+h1 {
+  font-size: 60px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 22px;
+  max-width: 800px;
+  line-height: 1.5;
+}
+
+/* BUTTONS */
+.buttons {
+  margin-top: 40px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+button {
+  padding: 15px 30px;
+  border: none;
+  border-radius: 10px;
+  background-color: white;
+  color: #222;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+  background-color: #ffe8c2;
+}
+
+/* BOX */
+.edit-box {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(4px);
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 850px;
+  width: 90%;
+  margin-top: 30px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* MOBILE */
+@media (max-width: 700px) {
+
+  h1 {
+    font-size: 42px;
+  }
+
+  p {
+    font-size: 18px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- MAIN MENU -->
+<div id="menu" class="page active">
+
+<h1>Latviešu Literatūra</h1>
+
+<p>Izvēlies literāro darbu</p>
+
+<div class="buttons">
+
+<button onclick="showPage('sk-home')">
+Skroderdienas Silmačos
+</button>
+
+<button onclick="showPage('na-home')">
+Nāves ēnā
+</button>
+
+</div>
+
+</div>
+
+<!-- ========================= -->
+<!-- SKRODERDIENAS SILMAČOS -->
+<!-- ========================= -->
+
+<div id="sk-home" class="page">
+
+<h1>Skroderdienas Silmačos</h1>
+
+<p>Mājaslapa par lugu un tās autoru.</p>
+
+<div class="buttons">
+
+<button onclick="showPage('sk-sizets')">Sižets</button>
+<button onclick="showPage('sk-autors')">Autors</button>
+<button onclick="showPage('sk-varoni')">Galvenie varoņi</button>
+<button onclick="showPage('sk-citati')">Citāti</button>
+<button onclick="showPage('sk-viedokli')">Mūsu viedokļi</button>
+
+</div>
+
+<div class="buttons">
+<button onclick="showPage('menu')">Atpakaļ uz izvēlni</button>
+</div>
+
+</div>
+
+<!-- SK SIŽETS -->
+<div id="sk-sizets" class="page">
+
+<h1>Sižets</h1>
+
+<div class="edit-box">
+<p>
+Luga notiek Silmaču mājās dažas dienas pirms Jāņiem. Galvenais notikums ir plānotās kāzas starp Antoniju un Aleksi.
+</p>
+</div>
+
+<div class="buttons">
+
+<button onclick="previousPage()">← Iepriekšējais</button>
+<button onclick="showPage('sk-home')">Atpakaļ</button>
+<button onclick="nextPage()">Nākamais →</button>
+
+</div>
+
+</div>
+
+<!-- SK AUTORS -->
+<div id="sk-autors" class="page">
+
+<h1>Autors</h1>
+
+<div class="edit-box">
+<p>
+Rūdolfs Blaumanis ir viens no nozīmīgākajiem latviešu dramaturgiem.
+</p>
+</div>
+
+<div class="buttons">
+
+<button onclick="previousPage()">← Iepriekšējais</button>
+<button onclick="showPage('sk-home')">Atpakaļ</button>
+<button onclick="nextPage()">Nākamais →</button>
+
+</div>
+
+</div>
+
+<!-- SK VARONI -->
+<div id="sk-varoni" class="page">
+
+<h1>Galvenie varoņi</h1>
+
+<div class="edit-box">
+<h2>Antonija</h2>
+<p>Silmaču saimniece.</p>
+</div>
+
+<div class="edit-box">
+<h2>Aleksis</h2>
+<p>Mīl Elīnu.</p>
+</div>
+
+<div class="edit-box">
+<h2>Elīna</h2>
+<p>Silmaču kalpone, kuru mīl Aleksis.</p>
+</div>
+
+<div class="buttons">
+
+<button onclick="previousPage()">← Iepriekšējais</button>
+<button onclick="showPage('sk-home')">Atpakaļ</button>
+<button onclick="nextPage()">Nākamais →</button>
+
+</div>
+
+</div>
+
+<!-- SK CITATI -->
+<div id="sk-citati" class="page">
+
+<h1>Citāti</h1>
+
+<div class="edit-box">
+<p>
+“Neaizmirstiet, draugi, ka tā ir joku luga.”
+</p>
+</div>
+
+<div class="buttons">
+
+<button onclick="previousPage()">← Iepriekšējais</button>
+<button onclick="showPage('sk-home')">Atpakaļ</button>
+<button onclick="nextPage()">Nākamais →</button>
+
+</div>
+
+</div>
+
+<!-- SK VIEDOKLI -->
+<div id="sk-viedokli" class="page">
+
+<h1>Mūsu viedokļi</h1>
+
+<div class="edit-box">
+<p>
+Jautra un interesanta luga.
+</p>
+</div>
+
+<div class="buttons">
+
+<button onclick="previousPage()">← Iepriekšējais</button>
+<button onclick="showPage('sk-home')">Atpakaļ</button>
+<button onclick="nextPage()">Nākamais →</button>
+
+</div>
+
+</div>
+
+<!-- ========================= -->
+<!-- NĀVES ĒNĀ -->
+<!-- ========================= -->
+
+<div id="na-home" class="page">
+
+<h1>Nāves ēnā</h1>
+
+<p>Mājaslapa par noveli un tās varoņiem.</p>
+
+<div class="buttons">
+
+<button onclick="showPage('na-sizets')">Sižets</button>
+<button onclick="showPage('na-autors')">Autors</button>
+<button onclick="showPage('na-varoni')">Galvenie varoņi</button>
+<button onclick="showPage('na-citati')">Citāti</button>
+<button onclick="showPage('na-viedokli')">Mūsu viedokļi</button>
+
+</div>
+
+<div class="buttons">
+<button onclick="showPage('menu')">Atpakaļ uz izvēlni</button>
+</div>
+
+</div>
+
+<!-- NA SIŽETS -->
+<div id="na-sizets" class="page">
+
+<h1>Sižets</h1>
+
+<div class="edit-box">
+<p>
+14 zvejnieki iesprostoti uz dreifējoša ledus gabala un cīnās par izdzīvošanu.
+</p>
+</div>
+
+<div class="buttons">
+
+<button onclick="previousPage()">← Iepriekšējais</button>
+<button onclick="showPage('na-home')">Atpakaļ</button>
+<button onclick="nextPage()">Nākamais →</button>
+
+</div>
+
+</div>
+
+<!-- NA AUTORS -->
+<div id="na-autors" class="page">
+
+<h1>Autors</h1>
+
+<div class="edit-box">
+<p>
+Rūdolfs Blaumanis sarakstīja “Nāves ēnā” 1899. gadā.
+</p>
+</div>
+
+<div class="buttons">
+
+<button onclick="previousPage()">← Iepriekšējais</button>
+<button onclick="showPage('na-home')">Atpakaļ</button>
+<button onclick="nextPage()">Nākamais →</button>
+
+</div>
+
+</div>
+
+<!-- NA VARONI -->
+<div id="na-varoni" class="page">
+
+<h1>Galvenie varoņi</h1>
+
+<div class="edit-box">
+<h2>Grīntāls</h2>
+<p>Drosmīgs līderis.</p>
+</div>
+
+<div class="edit-box">
+<h2>Kārlēns</h2>
+<p>Jauns zēns, kurš paliek uz ledus.</p>
+</div>
+
+<div class="edit-box">
+<h2>Vecais Dalda</h2>
+<p>Upurējas sava dēla dēļ.</p>
+</div>
+
+<div class="buttons">
+
+<button onclick="previousPage()">← Iepriekšējais</button>
+<button onclick="showPage('na-home')">Atpakaļ</button>
+<button onclick="nextPage()">Nākamais →</button>
+
+</div>
+
+</div>
+
+<!-- NA CITATI -->
+<div id="na-citati" class="page">
+
+<h1>Citāti</h1>
+
+<div class="edit-box">
+<p>
+“Dzīvība cilvēkam ir visdārgākā manta.”
+</p>
+</div>
+
+<div class="buttons">
+
+<button onclick="previousPage()">← Iepriekšējais</button>
+<button onclick="showPage('na-home')">Atpakaļ</button>
+<button onclick="nextPage()">Nākamais →</button>
+
+</div>
+
+</div>
+
+<!-- NA VIEDOKLI -->
+<div id="na-viedokli" class="page">
+
+<h1>Mūsu viedokļi</h1>
+
+<div class="edit-box">
+<p>
+Ļoti emocionāls un aizraujošs stāsts.
+</p>
+</div>
+
+<div class="buttons">
+
+<button onclick="previousPage()">← Iepriekšējais</button>
+<button onclick="showPage('na-home')">Atpakaļ</button>
+<button onclick="nextPage()">Nākamais →</button>
+
+</div>
+
+</div>
+
+<script>
+
+const skPages = [
+  "sk-sizets",
+  "sk-autors",
+  "sk-varoni",
+  "sk-citati",
+  "sk-viedokli"
+];
+
+const naPages = [
+  "na-sizets",
+  "na-autors",
+  "na-varoni",
+  "na-citati",
+  "na-viedokli"
+];
+
+let currentPage = "menu";
+
+function showPage(id) {
+
+  document.querySelectorAll(".page").forEach(page => {
+    page.classList.remove("active");
+  });
+
+  document.getElementById(id).classList.add("active");
+
+  currentPage = id;
+}
+
+function nextPage() {
+
+  let pages;
+
+  if (currentPage.startsWith("sk-")) {
+    pages = skPages;
+  } else if (currentPage.startsWith("na-")) {
+    pages = naPages;
+  } else {
+    return;
+  }
+
+  let i = pages.indexOf(currentPage);
+
+  if (i < pages.length - 1) {
+    showPage(pages[i + 1]);
+  } else {
+    showPage(pages[0]);
+  }
+
+}
+
+function previousPage() {
+
+  let pages;
+
+  if (currentPage.startsWith("sk-")) {
+    pages = skPages;
+  } else if (currentPage.startsWith("na-")) {
+    pages = naPages;
+  } else {
+    return;
+  }
+
+  let i = pages.indexOf(currentPage);
+
+  if (i > 0) {
+    showPage(pages[i - 1]);
+  } else {
+    showPage(pages[pages.length - 1]);
+  }
+
+}
+
+</script>
+
+</body>
+</html>
